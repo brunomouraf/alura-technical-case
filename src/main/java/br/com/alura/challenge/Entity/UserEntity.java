@@ -1,16 +1,27 @@
 package br.com.alura.challenge.Entity;
 
 import br.com.alura.challenge.Enum.RoleEnum;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
+@Entity
+@Table(name = "TB_USER")
 public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private int id;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "USER_NAME")
     private String userName;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "PASSWORD")
     private String password;
+    @Column(name = "ROLE")
     private RoleEnum role;
+    @Column(name = "CREATION_DATE")
     private Date creationDate;
 
     public UserEntity() {

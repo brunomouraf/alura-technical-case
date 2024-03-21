@@ -1,36 +1,46 @@
 package br.com.alura.challenge.Entity;
 
 
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.util.Date;
+@Entity
+@Table(name = "TB_REGISTRATION")
 public class RegistrationEntity {
 
-    private UserEntity user;
-    private CourseEntity course;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private int id;
+    @Column(name = "USER_ID")
+    private int user;
+    @Column(name = "COURSE")
+    private String course;
+    @Column(name = "REGISTRATION_DATE")
     private Date registrationDate;
 
     public RegistrationEntity() {
     }
 
-    public RegistrationEntity(UserEntity user, CourseEntity course, Date registrationDate) {
+    public RegistrationEntity(int user, String course, Date registrationDate) {
         this.user = user;
         this.course = course;
         this.registrationDate = registrationDate;
     }
 
-    public UserEntity getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
-    public CourseEntity getCourse() {
+    public String getCourse() {
         return course;
     }
 
-    public void setCourse(CourseEntity course) {
+    public void setCourse(String course) {
         this.course = course;
     }
 
