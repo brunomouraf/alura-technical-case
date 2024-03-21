@@ -6,22 +6,23 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tb_course")
+@Table(name = "TB_COURSE")
 public class CourseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private int id;
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
-    @Column(name = "code")
+    @Column(name = "CODE")
     private String code;
-    @Column(name = "description")
+    @Column(name = "DESCRIPTION")
     private String description;
-    @Column(name = "status")
+    @Column(name = "STATUS")
     private StatusEnum status;
-    @Column(name = "creation_date")
+    @Column(name = "CREATION_DATE")
     private Date creationDate;
-    @Column(name = "inactivation_date")
+    @Column(name = "INACTIVATION_DATE")
     private Date inactivationDate;
 
     public CourseEntity() {

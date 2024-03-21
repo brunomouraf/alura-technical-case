@@ -5,22 +5,23 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
-@Table(name = "tb_user")
+@Table(name = "TB_USER")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private int id;
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
-    @Column(name = "user_name")
+    @Column(name = "USER_NAME")
     private String userName;
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
-    @Column(name = "password")
+    @Column(name = "PASSWORD")
     private String password;
-    @Column(name = "role")
+    @Column(name = "ROLE")
     private RoleEnum role;
-    @Column(name = "creation_date")
+    @Column(name = "CREATION_DATE")
     private Date creationDate;
 
     public UserEntity() {
