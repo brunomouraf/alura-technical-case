@@ -1,17 +1,27 @@
 package br.com.alura.challenge.Entity;
 
 import br.com.alura.challenge.Enum.StatusEnum;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "tb_course")
 public class CourseEntity {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "code")
     private String code;
+    @Column(name = "description")
     private String description;
+    @Column(name = "status")
     private StatusEnum status;
+    @Column(name = "creation_date")
     private Date creationDate;
+    @Column(name = "inactivation_date")
     private Date inactivationDate;
 
     public CourseEntity() {
