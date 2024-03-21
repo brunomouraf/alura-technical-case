@@ -1,4 +1,7 @@
 package br.com.alura.challenge.Repository;
 
-public class RegistrationRepository {
+import br.com.alura.challenge.Entity.RegistrationEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RegistrationRepository extends JpaRepository<RegistrationEntity, Long> {
 }
