@@ -9,8 +9,7 @@ import java.util.Date;
 public class RegistrationEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "USER_ID")
     private int user;
