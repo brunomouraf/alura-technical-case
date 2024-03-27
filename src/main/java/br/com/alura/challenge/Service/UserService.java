@@ -16,7 +16,6 @@ public class UserService {
     public UserEntity saveUser(UserRegisterRequest userRegisterRequest){
         UserEntity user = userRegisterRequest.saveRequestObject();
 
-
         if(userValidation.userNameValidation(userRegisterRequest.getUserName())){
             if(userValidation.userEmailValidation(userRegisterRequest.getEmail())){
                 if(!userRepository.existsByUserName(userRegisterRequest.getUserName()) || !userRepository.existsByEmail(userRegisterRequest.getEmail())){
@@ -27,6 +26,5 @@ public class UserService {
             }else throw new RuntimeException("E-mail invalido.");
 
         }else throw new RuntimeException("Nome de usuario invalido.");
-
     }
 }
