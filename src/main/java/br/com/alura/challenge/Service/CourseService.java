@@ -1,12 +1,16 @@
 package br.com.alura.challenge.Service;
 
 import br.com.alura.challenge.Entity.CourseEntity;
+import br.com.alura.challenge.Enum.RoleEnum;
+import br.com.alura.challenge.Enum.StatusEnum;
 import br.com.alura.challenge.Repository.CourseRepository;
 import br.com.alura.challenge.Request.CourseRegisterRequest;
+import br.com.alura.challenge.Request.ListRequest;
 import br.com.alura.challenge.Useful.CourseValidation;
-import br.com.alura.challenge.Useful.UserValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CourseService {
@@ -30,5 +34,13 @@ public class CourseService {
         }else throw new RuntimeException("Permissão negada - Apenas administradores podem alterar ou adicionar cursos.");
 
 
+    }
+
+    public List<CourseEntity> findCourses(ListRequest listRequest){
+
+        if(listRequest.getRole().description.equals("ADMINISTRATOR")){
+            return courseRepository.findByStatus(listRequest.getStatus());
+
+        }else throw new RuntimeException("Permissão negada - Apenas administradores podem alterar ou adicionar cursos.");
     }
 }
