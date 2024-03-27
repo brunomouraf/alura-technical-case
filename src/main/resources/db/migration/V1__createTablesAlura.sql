@@ -1,10 +1,11 @@
 
 CREATE TABLE TB_COURSE(
-                       ID BIGINT PRIMARY KEY,
+                       ID BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                        NAME VARCHAR(30),
                        CODE VARCHAR(30),
-                       DESCRIPTION VARCHAR(30),
-                       STATUS ENUM ("enable", "disable"),
+                       INSTRUCTOR VARCHAR(30),
+                       DESCRIPTION VARCHAR(150),
+                       STATUS ENUM('ENABLE', 'DISABLE') NOT NULL,
                        CREATION_DATE DATE,
                        INACTIVATION_DATE DATE
 );
@@ -23,7 +24,7 @@ CREATE TABLE TB_USER(
                        EMAIL VARCHAR(30) NOT NULL,
                        PASSWORD VARCHAR(30) NOT NULL,
                        ROLE ENUM('STUDENT', 'INSTRUCTOR', 'ADMINISTRATOR') NOT NULL,
-                       CREATION_DATE DATE NOT NULL
+                       CREATION_DATE DATE
 );
 
 

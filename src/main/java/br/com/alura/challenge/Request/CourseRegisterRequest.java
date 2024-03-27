@@ -1,53 +1,43 @@
-package br.com.alura.challenge.Entity;
+package br.com.alura.challenge.Request;
 
+import br.com.alura.challenge.Entity.CourseEntity;
 import br.com.alura.challenge.Enum.RoleEnum;
 import br.com.alura.challenge.Enum.StatusEnum;
-import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Entity
-@Table(name = "TB_COURSE")
-public class CourseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "NAME")
-    private String name;
-    @Column(name = "CODE")
-    private String code;
-    @Column(name = "INSTRUCTOR")
-    private String instructor;
-    @Column(name = "DESCRIPTION")
-    private String description;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "STATUS")
-    private StatusEnum status;
-    @Column(name = "CREATION_DATE")
-    private Date creationDate;
-    @Column(name = "INACTIVATION_DATE")
-    private Date inactivationDate;
+public class CourseRegisterRequest {
 
-    public CourseEntity() {
+    private RoleEnum rolePermission;
+    private String name;
+    public String code;
+    private String instructor;
+    private String description;
+    private StatusEnum status;
+    private Date creationDate;
+    private Date inativationDate;
+
+    public CourseRegisterRequest() {
     }
 
-    public CourseEntity(int id, String name, String code, String instructor,String description, StatusEnum status, Date creationDate, Date inactivationDate) {
-        this.id = id;
+
+    public CourseRegisterRequest(RoleEnum rolePermission, String name, String code, String instructor, String description, StatusEnum status, Date creationDate, Date inativationDate) {
+        this.rolePermission = rolePermission;
         this.name = name;
         this.code = code;
         this.instructor = instructor;
         this.description = description;
         this.status = status;
         this.creationDate = creationDate;
-        this.inactivationDate = inactivationDate;
+        this.inativationDate = inativationDate;
     }
 
-    public int getId() {
-        return id;
+    public RoleEnum getRolePermission() {
+        return rolePermission;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRolePermission(RoleEnum rolePermission) {
+        this.rolePermission = rolePermission;
     }
 
     public String getName() {
@@ -98,11 +88,22 @@ public class CourseEntity {
         this.creationDate = creationDate;
     }
 
-    public Date getInactivationDate() {
-        return inactivationDate;
+    public Date getInativationDate() {
+        return inativationDate;
     }
 
-    public void setInactivationDate(Date inactivationDate) {
-        this.inactivationDate = inactivationDate;
+    public void setInativationDate(Date inativationDate) {
+        this.inativationDate = inativationDate;
+    }
+
+    public CourseEntity saveRequestObject(){
+        CourseEntity course = new CourseEntity();
+        course.setName(this.name);
+        course.setCode(this.code);
+        course.setInstructor(this.instructor);
+        course.setDescription(this.description);
+        course.setStatus(this.status);
+
+        return course;
     }
 }

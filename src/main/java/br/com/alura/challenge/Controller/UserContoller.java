@@ -9,11 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class Contoller {
+public class UserContoller {
 
     private final UserService userService;
     @Autowired
-    public Contoller(UserService userService) {
+    public UserContoller(UserService userService) {
         this.userService = userService;
     }
 
