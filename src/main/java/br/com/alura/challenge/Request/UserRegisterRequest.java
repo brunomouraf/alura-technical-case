@@ -1,48 +1,30 @@
-package br.com.alura.challenge.Entity;
+package br.com.alura.challenge.Request;
 
+import br.com.alura.challenge.Entity.UserEntity;
 import br.com.alura.challenge.Enum.RoleEnum;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
 import java.util.Date;
-@Entity
-@Table(name = "TB_USER")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "NAME")
+
+public class UserRegisterRequest {
+
     private String name;
-    @Column(name = "USER_NAME")
-    private String userName;
-    @Column(name = "EMAIL")
+    public String userName;
     private String email;
-    @Column(name = "PASSWORD")
     private String password;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ROLE")
     private RoleEnum role;
-    @Column(name = "CREATION_DATE")
     private Date creationDate;
 
-    public UserEntity() {
+    public UserRegisterRequest() {
     }
 
-    public UserEntity(int id, String name, String userName, String email, String password, RoleEnum role, Date creationDate) {
-        this.id = id;
+    public UserRegisterRequest(String name, String userName, String email, String password, RoleEnum role, Date creationDate) {
         this.name = name;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.role = role;
         this.creationDate = creationDate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -92,6 +74,16 @@ public class UserEntity {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
+
+    public UserEntity saveRequestObject(){
+        UserEntity user = new UserEntity();
+        user.setName(this.name);
+        user.setUserName(this.userName);
+        user.setEmail(this.email);
+        user.setPassword(this.password);
+        user.setRole(this.role);
+        user.setCreationDate(this.creationDate);
+
+        return user;
+    }
 }
-
-

@@ -1,13 +1,17 @@
 package br.com.alura.challenge.Enum;
 
 public enum RoleEnum {
-    STUDENT("student"),
-    INSTRUCTOR("instructor"),
-    ADMINISTRATOR("administrator");
+    STUDENT("STUDENT"),
+    INSTRUCTOR("INSTRUCTOR"),
+    ADMINISTRATOR("ADMINISTRATOR");
 
-    private String description;
+    public String description;
 
     RoleEnum(String description) {
         this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
