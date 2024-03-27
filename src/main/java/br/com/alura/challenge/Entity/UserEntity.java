@@ -3,6 +3,7 @@ package br.com.alura.challenge.Entity;
 import br.com.alura.challenge.Enum.RoleEnum;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
 @Table(name = "TB_USER")
@@ -22,12 +23,12 @@ public class UserEntity {
     @Column(name = "ROLE")
     private RoleEnum role;
     @Column(name = "CREATION_DATE")
-    private Date creationDate;
+    private LocalDate creationDate = LocalDate.now();
 
     public UserEntity() {
     }
 
-    public UserEntity(int id, String name, String userName, String email, String password, RoleEnum role, Date creationDate) {
+    public UserEntity(int id, String name, String userName, String email, String password, RoleEnum role, LocalDate creationDate) {
         this.id = id;
         this.name = name;
         this.userName = userName;
@@ -85,11 +86,11 @@ public class UserEntity {
         this.role = role;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 }
