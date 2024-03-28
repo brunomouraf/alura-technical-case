@@ -31,7 +31,9 @@ public class EnrollmentService {
 
                 if(course.get(0).getStatus().getDescription().equals("ENABLE")){
 
-                    return enrollmentRepository.save(enrollment);
+                    if(enrollmentRepository.findByCode(enrollmentRequest.getCourse(), enrollmentRequest.getUser()).isEmpty()){
+                        return enrollmentRepository.save(enrollment);
+                    }else throw new RuntimeException("Usuario ja matriculado");
 
                 }else throw new RuntimeException("Curso desativado");
 
