@@ -10,6 +10,7 @@ import br.com.alura.challenge.Useful.CourseValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -42,5 +43,16 @@ public class CourseService {
             return courseRepository.findByStatus(listRequest.getStatus());
 
         }else throw new RuntimeException("Permissão negada - Apenas administradores podem alterar ou adicionar cursos.");
+    }
+
+    public CourseEntity updateStatusCourse(ListRequest listRequest){
+        List<CourseEntity> course = courseRepository.findByCode(listRequest.getCode());
+        course.get(0).setStatus(listRequest.getStatus());
+
+        if(listRequest.getStatus().getDescription().equals("DISABLE")){
+            course.get(0).setInactivationDate(LocalDate.now());
+        }else course.get(0).setInactivationDate(null);
+
+        return courseRepository.save(course.get(0));
     }
 }

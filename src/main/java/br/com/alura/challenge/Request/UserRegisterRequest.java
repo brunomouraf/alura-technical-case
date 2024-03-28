@@ -4,6 +4,7 @@ import br.com.alura.challenge.Entity.UserEntity;
 import br.com.alura.challenge.Enum.RoleEnum;
 import jakarta.persistence.Column;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class UserRegisterRequest {
@@ -13,18 +14,17 @@ public class UserRegisterRequest {
     private String email;
     private String password;
     private RoleEnum role;
-    private Date creationDate;
+    private LocalDate creationDate;
 
     public UserRegisterRequest() {
     }
 
-    public UserRegisterRequest(String name, String userName, String email, String password, RoleEnum role, Date creationDate) {
+    public UserRegisterRequest(String name, String userName, String email, String password, RoleEnum role, LocalDate creationDate) {
         this.name = name;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.creationDate = creationDate;
     }
 
     public String getName() {
@@ -67,11 +67,11 @@ public class UserRegisterRequest {
         this.role = role;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -82,7 +82,6 @@ public class UserRegisterRequest {
         user.setEmail(this.email);
         user.setPassword(this.password);
         user.setRole(this.role);
-        user.setCreationDate(this.creationDate);
 
         return user;
     }

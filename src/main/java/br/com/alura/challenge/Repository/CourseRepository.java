@@ -12,4 +12,5 @@ import java.util.List;
 public interface CourseRepository extends JpaRepository<CourseEntity, Long> {
     boolean existsByCode(String code);
     List<CourseEntity> findByStatus(StatusEnum statusEnum);
+    List<CourseEntity> findByCode(String code);
 }

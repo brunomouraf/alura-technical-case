@@ -4,6 +4,7 @@ import br.com.alura.challenge.Entity.CourseEntity;
 import br.com.alura.challenge.Enum.RoleEnum;
 import br.com.alura.challenge.Enum.StatusEnum;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class CourseRegisterRequest {
@@ -15,13 +16,13 @@ public class CourseRegisterRequest {
     private String description;
     private StatusEnum status;
     private Date creationDate;
-    private Date inativationDate;
+    private LocalDate inativationDate;
 
     public CourseRegisterRequest() {
     }
 
 
-    public CourseRegisterRequest(RoleEnum rolePermission, String name, String code, String instructor, String description, StatusEnum status, Date creationDate, Date inativationDate) {
+    public CourseRegisterRequest(RoleEnum rolePermission, String name, String code, String instructor, String description, StatusEnum status, Date creationDate, LocalDate inativationDate) {
         this.rolePermission = rolePermission;
         this.name = name;
         this.code = code;
@@ -88,11 +89,11 @@ public class CourseRegisterRequest {
         this.creationDate = creationDate;
     }
 
-    public Date getInativationDate() {
+    public LocalDate getInativationDate() {
         return inativationDate;
     }
 
-    public void setInativationDate(Date inativationDate) {
+    public void setInativationDate(LocalDate inativationDate) {
         this.inativationDate = inativationDate;
     }
 

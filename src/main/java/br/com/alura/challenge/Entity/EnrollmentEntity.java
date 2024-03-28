@@ -3,35 +3,36 @@ package br.com.alura.challenge.Entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
-@Table(name = "TB_REGISTRATION")
-public class RegistrationEntity {
+@Table(name = "TB_ENROLLMENT")
+public class EnrollmentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "USER_ID")
-    private int user;
+    private String user;
     @Column(name = "COURSE")
     private String course;
     @Column(name = "REGISTRATION_DATE")
-    private Date registrationDate;
+    private LocalDate registrationDate = LocalDate.now();
 
-    public RegistrationEntity() {
+    public EnrollmentEntity() {
     }
 
-    public RegistrationEntity(int user, String course, Date registrationDate) {
+    public EnrollmentEntity(String user, String course, LocalDate registrationDate) {
         this.user = user;
         this.course = course;
         this.registrationDate = registrationDate;
     }
 
-    public int getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(int user) {
+    public void setUser(String user) {
         this.user = user;
     }
 
@@ -43,11 +44,11 @@ public class RegistrationEntity {
         this.course = course;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
 }

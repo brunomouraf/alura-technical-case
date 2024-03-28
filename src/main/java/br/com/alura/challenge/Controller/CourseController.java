@@ -35,4 +35,9 @@ public class CourseController {
     public List<CourseEntity> listCourse(@RequestBody ListRequest listRequest){
         return courseService.findCourses(listRequest);
     }
+
+    @PutMapping("/status-course-update")
+    public ResponseEntity<CourseEntity> updateStatus(@RequestBody ListRequest listRequest) {
+        return new ResponseEntity<>(courseService.updateStatusCourse(listRequest), HttpStatus.OK);
+    }
 }

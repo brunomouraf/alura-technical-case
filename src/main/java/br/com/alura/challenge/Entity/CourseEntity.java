@@ -4,6 +4,7 @@ import br.com.alura.challenge.Enum.RoleEnum;
 import br.com.alura.challenge.Enum.StatusEnum;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,14 +25,14 @@ public class CourseEntity {
     @Column(name = "STATUS")
     private StatusEnum status;
     @Column(name = "CREATION_DATE")
-    private Date creationDate;
+    private LocalDate creationDate = LocalDate.now();
     @Column(name = "INACTIVATION_DATE")
-    private Date inactivationDate;
+    private LocalDate inactivationDate;
 
     public CourseEntity() {
     }
 
-    public CourseEntity(int id, String name, String code, String instructor,String description, StatusEnum status, Date creationDate, Date inactivationDate) {
+    public CourseEntity(int id, String name, String code, String instructor,String description, StatusEnum status, LocalDate creationDate, LocalDate inactivationDate) {
         this.id = id;
         this.name = name;
         this.code = code;
@@ -90,19 +91,19 @@ public class CourseEntity {
         this.status = status;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
-    public Date getInactivationDate() {
+    public LocalDate getInactivationDate() {
         return inactivationDate;
     }
 
-    public void setInactivationDate(Date inactivationDate) {
+    public void setInactivationDate(LocalDate inactivationDate) {
         this.inactivationDate = inactivationDate;
     }
 }

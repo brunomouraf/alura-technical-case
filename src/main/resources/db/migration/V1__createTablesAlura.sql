@@ -10,11 +10,11 @@ CREATE TABLE TB_COURSE(
                        INACTIVATION_DATE DATE
 );
 
-CREATE TABLE TB_REGISTRATION(
-                       ID BIGINT PRIMARY KEY,
-                       USER_ID INT,
-                       COURSE VARCHAR(30),
-                       REGISTRATION_DATE DATE
+CREATE TABLE TB_ENROLLMENT(
+                       ID BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+                       USER_ID VARCHAR(20) NOT NULL,
+                       COURSE VARCHAR(30) NOT NULL,
+                       REGISTRATION_DATE DATE NOT NULL
 );
 
 CREATE TABLE TB_USER(
