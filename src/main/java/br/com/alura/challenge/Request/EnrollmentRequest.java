@@ -12,15 +12,26 @@ public class EnrollmentRequest {
 
     private String course;
 
+    private double hate;
+
     private LocalDate registrationDate = LocalDate.now();
 
     public EnrollmentRequest() {
     }
 
-    public EnrollmentRequest(String user, String course, LocalDate registrationDate) {
+    public EnrollmentRequest(String user, String course, double hate, LocalDate registrationDate) {
         this.user = user;
         this.course = course;
+        this.hate = hate;
         this.registrationDate = registrationDate;
+    }
+
+    public double getHate() {
+        return hate;
+    }
+
+    public void setHate(double hate) {
+        this.hate = hate;
     }
 
     public String getUser() {

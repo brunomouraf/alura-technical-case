@@ -16,6 +16,9 @@ public class EnrollmentEntity {
     private String user;
     @Column(name = "COURSE")
     private String course;
+
+    @Column(name = "HATE")
+    private double hate;
     @Column(name = "REGISTRATION_DATE")
     private LocalDate registrationDate = LocalDate.now();
 
@@ -26,6 +29,14 @@ public class EnrollmentEntity {
         this.user = user;
         this.course = course;
         this.registrationDate = registrationDate;
+    }
+
+    public double getHate() {
+        return hate;
+    }
+
+    public void setHate(double hate) {
+        this.hate = hate;
     }
 
     public String getUser() {

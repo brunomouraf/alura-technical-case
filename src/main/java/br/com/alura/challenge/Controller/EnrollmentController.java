@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +26,11 @@ public class EnrollmentController {
     public ResponseEntity<EnrollmentEntity> registerCourse(@RequestBody EnrollmentRequest enrollmentRequest){
         EnrollmentEntity enrollment = enrollmentService.saveEnrollment(enrollmentRequest);
         return new ResponseEntity<>(enrollment, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/enrollment-update-hate")
+    public ResponseEntity<EnrollmentEntity> updateHate(@RequestBody EnrollmentRequest enrollmentRequest){
+        EnrollmentEntity enrollment = enrollmentService.updateHateCourse(enrollmentRequest);
+        return new ResponseEntity<>(enrollment, HttpStatus.OK);
     }
 }

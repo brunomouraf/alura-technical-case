@@ -41,4 +41,17 @@ public class EnrollmentService {
 
         }else throw new RuntimeException("Usuario não cadastrado");
     }
+
+    public EnrollmentEntity updateHateCourse(EnrollmentRequest enrollmentRequest) {
+
+        if(!enrollmentRepository.findByCode(enrollmentRequest.getCourse(), enrollmentRequest.getUser()).isEmpty()){
+            List<EnrollmentEntity> enrollmentList = enrollmentRepository.findByCode(enrollmentRequest.getCourse(), enrollmentRequest.getUser());
+            enrollmentList.get(0).setHate(enrollmentRequest.getHate());
+            return enrollmentRepository.save(enrollmentList.get(0));
+        }else throw new RuntimeException("Usuario não matriculado");
+
+
+    }
 }
+
+

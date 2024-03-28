@@ -14,6 +14,7 @@ CREATE TABLE TB_ENROLLMENT(
                        ID BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                        USER_ID VARCHAR(20) NOT NULL,
                        COURSE VARCHAR(30) NOT NULL,
+                       HATE FLOAT,
                        REGISTRATION_DATE DATE NOT NULL
 );
 
